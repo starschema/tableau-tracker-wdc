@@ -1,0 +1,60 @@
+body {
+  font-family: "Varela Round", sans-serif, monospace;
+}
+
+h2 {
+  width: 100%;
+}
+
+h4 {
+  margin-top:10px;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.1);
+  width: 100%;
+  display: block;
+}
+
+.secondary-link {
+  color: #5CA6B5;
+  display: block;
+}
+
+.center {
+    text-align: center;
+}
+
+i.fa {
+  width: 20px;
+  text-align: center;
+}
+
+/* Starschema logo */
+.schema-logo {
+  max-height: 40px;
+  float: right;
+}
+
+label.tooltippy:hover {
+  position: relative;
+  text-decoration: none
+}
+
+label.tooltippy span {
+  display: none
+}
+
+label.tooltippy:hover span {
+  color: #fff;
+  display: block;
+  position: absolute;
+  top: 0px; left: 40px;
+  width: 300px;
+  padding: 1px;
+  margin: 2px;
+  z-index: 100;
+  background: #000;
+  border: 1px solid #955F1F;
+  opacity: 0.9;
+  text-align: center
+}

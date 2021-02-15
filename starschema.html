@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <title>Connector</title>
+  <meta http-equiv="Cache-Control" content="no-store" />
+
+  <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link href="style.css" rel="stylesheet">
+  <link href="tableau-style/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h2>
+        Tableau Usage Tracker
+        <img src="starschema-logo.png" class="schema-logo" />
+      </h2>
+    </div>
+    <div class="row">
+      <h4>Configuration</h4>
+    </div>
+    <div class="alert alert-danger" id="error" style="display: none;"><strong>Error</strong>
+      <p id="error-msg"></p>
+    </div>
+    <div class="needs-validation">
+      <div class="form-group row">
+        <label for="deployment-id" class="col-form-label col-3 tooltippy">
+          Deployment Id
+          <span>The DeploymentId you received during registration.</span>
+        </label>
+        <div class="col-9">
+          <input name="deployment-id" id="deployment-id" class="form-control validable" placeholder="Deployment Id" />
+          <div class="invalid-tooltip">
+            Please provide a valid deployment id.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="admin-key" class="col-form-label col-3 tooltippy">
+          Admin Key
+          <span>The Admin Key you received during registration.</span>
+        </label>
+        <div class="col-9">
+          <input name="admin-key" class="form-control validable" id="admin-key" placeholder="Admin Key">
+          <div class="invalid-tooltip">
+            Please provide a valid admin-key.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="workbook-name" class="col-form-label col-3 tooltippy">
+          Workbook Name
+          <span>The name of the workbook</span>
+        </label>
+        <div class="col-9">
+          <input name="workbook-name" class="form-control" id="workbook-name" placeholder="Workbook Name" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="custom-metadata-fields" class="col-form-label col-3 tooltippy">
+          Custom Metadata Fields
+          <span>Custom column names separated with comma, like "Column1, Column2, Column3"</span>
+        </label>
+        <div class="col-9">
+          <input name="custom-metadata-fields" class="form-control" id="custom-metadata-fields" placeholder="Custom Metadata Fields" />
+        </div>
+      </div>
+
+
+
+      <div class="row vertical-center-row">
+        <div class="text-center col-lg-12">
+          <button type="button" id="submitButton" class="cta cta--secondary" style="margin:10px;">Get Data</button>
+        </div>
+      </div>
+    </div>
+    <div class="row d-block">
+      <h4>Smart links</h4>
+      <a id="registration-link" class="secondary-link" target="_blank">
+        <i class="fa fa-at" aria-hidden="true"></i>
+        Product website
+      </a>
+      <a id="starschema-link" class="secondary-link" target="_blank">
+        <i class="fa fa-laptop" aria-hidden="true"></i>
+        Developers' website
+      </a>
+      <a id="help-link" class="secondary-link" target="_blank">
+        <i class="fa fa-book" aria-hidden="true"></i>
+        Documentation
+      </a>
+    </div>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js" type="text/javascript"></script>
+  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.from%2CArray.prototype.forEach"></script>
+  <script src="config.js" type="text/javascript"></script>
+  <script src="wdc.js" type="text/javascript"></script>
+  <script src="app.js" type="text/javascript"></script>
+  <script>
+    //Set link refs from config
+    var refIds = Object.keys(config.links);
+    refIds.forEach(function (refId) {
+      $('#'+refId.replace(/_/gi,"-")).prop("href", config.links[refId]);
+    });
+  </script>
+
+</body>
+
+</html>
